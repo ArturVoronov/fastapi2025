@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "templates",
+			"path": "../html, template/templates"
+		},
+		{
+			"name": "Abdul Wahab(Todo application)",
+			"path": "."
+		},
+		{
+			"name": "static",
+			"path": "../html, template/static"
+		}
+	],
+	"settings": {}
+}

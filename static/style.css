@@ -1,0 +1,21 @@
+
+.a1{
+    display: inline;
+   text-align:center ;
+
+}
+
+.a2{justify-self: center;
+   border: medium solid rgb(253, 246, 54);
+}
+
+.field1{color:aqua;
+    
+}
+.field2{ 
+    color:rgb(96, 23, 160);
+    background:gray;
+}
+.field3{color: beige;
+
+}

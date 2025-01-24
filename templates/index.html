@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', path='/style.css')}}" rel="stylesheet">
+    <title>Document new</title>
+</head>
+<body>
+    
+    </table>
+    <div class='a1'>
+    <H1>Hi, this is fastapi with html </H1>
+    <p> Movie list</p>
+    <div class='a2'>
+    <table>
+        <thead class='field1'>
+            <tr>
+            <th> Film name</th>
+            <th> Director</th>
+            </tr>
+        </thead>
+        <tbody class='field2'>
+            {%for film in films%}
+            
+            <tr class='field3'>
+            <td>{{film.name}}</td>
+            <td>{{film.director}}</td>
+            </tr>
+            {%endfor%}
+        </div>
+        </tbody>
+    </div>
+</body>
+</html>
