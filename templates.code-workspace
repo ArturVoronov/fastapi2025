@@ -13,5 +13,7 @@
 			"path": "../html, template/static"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.autoSave": "onFocusChange"
+	}
 }

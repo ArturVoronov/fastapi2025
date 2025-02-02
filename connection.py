@@ -7,7 +7,7 @@ db_port: int = 5432
 db_host: str = 'localhost'
 db_password: str = 'c420av98'
 
-uri:str = F'postgresql://{db_user}:{db_password}@{db_host}:{db_port}/todo_db'
+uri:str = F'postgresql://{db_user}:{db_password}@{db_host}:{db_port}/to-do-app'
 
 engine = create_engine(uri)
 BASE.metadata.create_all(bind=engine)

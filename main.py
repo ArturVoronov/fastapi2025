@@ -1,5 +1,5 @@
-from routers.todo import todo_router
 from fastapi import FastAPI, Request, Form
+from routers.todo import todo_router
 from fastapi.templating import Jinja2Templates
 import uvicorn
 from fastapi.responses import HTMLResponse
@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 import operations.to_do as db
 from model.pydentic_model import Todo
 from connection import db_session
-
+from operations.to_do import create_to_do
 app = FastAPI()
 
 app.include_router(todo_router)
@@ -38,15 +38,13 @@ def index2(request:Request):
 
 from fastapi.responses import FileResponse
  
-
- 
-
 @app.get('/forma/', response_class=HTMLResponse)
 async def main(request: Request):
     return templates.TemplateResponse('forma.html', {'request': request})
 
 @app.post('/disable')
 async def disable_cat(cat_name: str = Form(...)):
+    db.create_to_do(cat_name)
     return f'{cat_name} category has been disabled.',{"user":cat_name}
 
 
