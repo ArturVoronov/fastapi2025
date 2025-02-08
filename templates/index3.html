@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <H1>Hi, this is fastapi with html and postgres!!! </H1>
-    <table>
+    <h1>Hello body!</h1>
+    <table class="table1">
         <thead>
             <tr>
                 <th>id</th>
@@ -15,18 +15,16 @@
                 <th>Data</th>
              </thead>
              <tbody class='field2'>
-                
-            {%for item in res.data%}
-            
             <tr class='field3'>
-            <td>{{item._id}}</td>
-            <td>{{item.title}}</td>
-            <td>{{item.timestamp}}</td>
-            <td><form action="{{ url_for('index1') }}">
-                <button>Click me</button>
-             </form>
+            <td>{{res.data._id}}</td>
+            <td>{{res.data.title}}</td>
+            <td>{{res.data.timestamp}}</td>
+            <td><form action="{{index4}}">
+                <button>Delete</button>
+             </form></td>
             </tr>
-            {%endfor%}
+            
             <p>{{res}}</p>
+            
 </body>
 </html>
