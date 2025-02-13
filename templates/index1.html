@@ -31,8 +31,8 @@
             <td>{{item._id}}</td>
             <td>{{item.title}}</td>
             <td>{{item.timestamp}}</td>
-            <td>
-                 <form action="{{ item._id }}">
+            <td class="no">
+                 <form action="/database/{{item._id}}">
                     <input type="submit" value="{{item._id}}Delete" />
                 </form></td>
             </tr>

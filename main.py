@@ -57,11 +57,12 @@ def index4(request:Request, _id):
 async def main(request: Request):
     return templates.TemplateResponse('forma.html', {'request': request})
 
-@app.post('/disable')
-async def disable_cat(cat_name: str = Form(...)):
+@app.post('/disable',response_class=HTMLResponse)
+async def disable_cat(request: Request, cat_name: str = Form(...)):
     db.create_to_do(cat_name)
-    return f'{cat_name} category has been disabled.',{"user":cat_name}
-
+    res = db.get_all()
+    context = {'request': request, 'res':res}
+    return templates.TemplateResponse("index1.html", context)
 
 if __name__=="__main__":
     uvicorn.run("main:app", reload=True)
