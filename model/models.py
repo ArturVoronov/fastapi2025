@@ -1,14 +1,16 @@
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, String, Integer, DateTime
+from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy import Column, String, Integer, DateTime, MetaData
 import datetime
+
 
 def get_timestamp():
     return datetime.datetime.now()
 
-BASE = declarative_base()
+class Base(DeclarativeBase):
+    metadata = MetaData()
 
 #creating our model or table
-class Todo(BASE):
+class Todo(Base):
     __tablename__:str ='to_do'
     _id = Column(Integer, primary_key=True, autoincrement=True)
     todo = Column(String)

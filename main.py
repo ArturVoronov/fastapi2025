@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import operations.to_do as db
 from model.pydentic_model import Todo
-from connection import db_session
+from connec import db_session
 from operations.to_do import create_to_do
 from operations.to_do import get_one
 from operations.to_do import delete_todo
@@ -47,7 +47,7 @@ def index2(request:Request):
 
 @app.get('/database/{_id}', response_class=HTMLResponse)
 def index4(request:Request, _id):
-    res1 = db.delete_todo(_id)
+    db.delete_todo(_id)
     res = db.get_all()
     context = {'request': request, 'res':res}
     return templates.TemplateResponse("index1.html", context)

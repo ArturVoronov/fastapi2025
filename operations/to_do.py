@@ -1,6 +1,6 @@
 import sys
 sys.path.append('./')
-from connection import db_session
+from connec import db_session
 from model.models import Todo
 import decoders.todo as decode
 
