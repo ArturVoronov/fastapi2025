@@ -39,15 +39,26 @@ def index2(request:Request):
 from fastapi.responses import FileResponse
  
 
- 
+@app.get('/database/{_id}', response_class=HTMLResponse)
+def index4(request:Request, _id):
+    db.delete_todo(_id)
+    res = db.get_all()
+    context = {'request': request, 'res':res}
+    return templates.TemplateResponse("index1.html", context) 
 
 @app.get('/forma/', response_class=HTMLResponse)
 async def main(request: Request):
     return templates.TemplateResponse('forma.html', {'request': request})
 
 @app.post('/disable')
-async def disable_cat(cat_name: str = Form(...)):
-    return f'{cat_name} category has been disabled.',{"user":cat_name}
+async def disable_cat(request: Request, cat_name: str = Form(...), Description: str = Form(...)):
+  
+    db.create_to_do(cat_name, Description)
+    res = db.get_all()
+    context = {'request': request, 'res':res}
+    return templates.TemplateResponse("index1.html", context)
+
+   # return f'{cat_name} category has been disabled.',{"todo":cat_name, "description":Description}
 
 
 if __name__=="__main__":

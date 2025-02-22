@@ -11,6 +11,7 @@ todo_router = APIRouter()
 def new_todo(doc:Todo):
     doc = dict(doc)
     todo: str = doc['todo']
+    description:str =doc ['description']
     res = db.create_to_do(todo)
     print(res)
     return res

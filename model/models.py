@@ -13,6 +13,9 @@ class Todo(BASE):
     _id = Column(Integer, primary_key=True, autoincrement=True)
     todo = Column(String)
     timestamp = Column (DateTime, default=get_timestamp())
-    def __init__(self, todo):
+    description = Column(String)
+    def __init__(self, todo, description):
         self.todo = todo
+        self.description = description
+        
 

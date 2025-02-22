@@ -3,27 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="{{url_for('static', path='/style1.css')}}" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
+<body >
     <H1>Hi, this is fastapi with html and postgres!!! </H1>
-    <table>
-        <thead>
+    <div class="table1">
+    <table >
+        <thead class="thead1">
             <tr>
                 <th>id</th>
                 <th>title</th>
                 <th>Data</th>
-             </thead>
-             <tbody class='field2'>
-                
+                <th>Description</th>
+           
+        </thead>
+          <tbody class='field2'>
+                <h2>Disable a category</h2>
+      <form method="post" action="/disable">
+         <label for="cat_name">Enter a title  to save in database:</label><br>
+         <input type="text" id="cat_name" name="cat_name">
+         <label for="Description">Enter a discription to save in database:</label><br>
+         <input type="text" id="Description" name="Description">
+         <input class="submit" type="submit" value="Submit">
+      </form>
             {%for item in res.data%}
             
             <tr class='field3'>
             <td>{{item._id}}</td>
             <td>{{item.title}}</td>
             <td>{{item.timestamp}}</td>
-            </tr>
+            <td>{{item.description}}</td>
+            <td class="no">
+                 <form action="/database/{{item._id}}">
+                    <input type="submit" value="{{item._id}}Delete" />
+                </form>
+            </td>
+            </tr></div>
             {%endfor%}
             <p>{{res}}</p>
+             
 </body>
 </html>

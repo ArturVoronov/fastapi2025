@@ -5,11 +5,12 @@ from model.models import Todo
 import decoders.todo as decode
 
 # create a todo
-def create_to_do(todo:str)->dict:
+def create_to_do(todo:str, description:str)->dict:
     try:
-        req = Todo(todo)
+        req = Todo(todo, description)
         db_session.add(req)
         db_session.commit()
+        
         return {
             'status': 'ok',
             'message':'new todo added'
@@ -19,6 +20,7 @@ def create_to_do(todo:str)->dict:
             'status':'error',
             'message':str(e)
         }
+
     # get all to-do list
 def get_all():
     try:

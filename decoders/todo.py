@@ -4,7 +4,8 @@ def decode_todo(doc) -> dict:
     return {
         '_id':doc._id,
         'title': doc.todo,
-        'timestamp':doc.timestamp
+        'timestamp': doc.timestamp,
+        'description': doc.description,
     }
 
 def decode_todos(docs) -> list:
